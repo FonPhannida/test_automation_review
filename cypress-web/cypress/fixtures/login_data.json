@@ -1,0 +1,9 @@
+{
+  "url":{
+    "correct_url": "https://www.automationexercise.com/"
+  },
+  "login":{
+    "email": "test@my.com",
+    "password": "test@my.com"
+  }
+}

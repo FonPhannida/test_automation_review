@@ -1,4 +1,5 @@
 # test_automation_review
+This project was created to review my skills and improve my understanding of each tool.
 
 What tools I have worked with
 ✨Selenium IDE for EH project
@@ -9,4 +10,4 @@ What tools I have worked with
 ✨TesttCmplete for POS, integration automated test
 ✨Postman for API test
 ✨jMeter for load test
-✨Cypress (in progress)
+✨Cypress (self-learning)

@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - C:/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml 
+    ports:
+      - "9091:9090" 
+    networks:
+      - monitoring
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin 
+    ports:
+      - "3000:3000" 
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+    links:
+      - prometheus
+    volumes:
+      - grafana-data:/var/lib/grafana 
+
+  k6:
+    image: grafana/k6:latest
+    container_name: k6
+    entrypoint:
+      ["k6", "run", "--vus", "10", "--duration", "30s", "/scripts/load-test.js"]
+    volumes:
+      - ./scripts:/scripts 
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+    environment:
+      - K6_PROMETHEUS=prometheus:9090
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  grafana-data:

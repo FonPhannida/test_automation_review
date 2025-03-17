@@ -11,3 +11,4 @@ What tools I have worked with
 ✨Postman for API test
 ✨jMeter for load test
 ✨Cypress (self-learning)
+✨K6+Grafana dashboard (self-learning)

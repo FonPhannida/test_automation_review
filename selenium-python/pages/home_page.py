@@ -17,3 +17,4 @@ class HomePage(BasePage):
 
     def click_nav_product(self):
         self.click_element(self.NAV_PRODUCT_BUTTON)
+    

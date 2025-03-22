@@ -1,0 +1,35 @@
+{
+  "url": {
+    "correct_url": "https://www.automationexercise.com/"
+  },
+  "login": {
+    "email": "test@my.com",
+    "password": "test@my.com"
+  },
+  "navigation": {
+    "products": ".shop-menu > .nav > :nth-child(2) > a",
+    "search_field": "#search_product",
+    "search_button": "#submit_search",
+    "search_result": ".productinfo > p",
+    "product_info": ".productinfo > h2",
+    "page_title": ".title",
+    "login_page": ".login-form > h2",
+    "email_field": "[data-qa=\"login-email\"]",
+    "password_field": "[data-qa=\"login-password\"]",
+    "login_nav": ".shop-menu > .nav > :nth-child(4) > a",
+    "login_message": ".login-message",
+    "login_submit": "[data-qa=\"login-button\"]"
+  },
+  "text": {
+    "product_name": "Blue Top",
+    "product_price": "Rs. 500",
+    "product_search_box": "Search Product",
+    "product_search_page": "Searched Products",
+    "product_search_result_text": "Showing 1 - 1 of 1 result"
+  },
+  "logout": {
+    "logout_button": ".shop-menu > .nav > :nth-child(4) > a",
+    "logout_button_text": "Logout",
+    "logout_message": "Login to your account"
+  }
+}

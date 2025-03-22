@@ -1,7 +1,7 @@
 ///<reference types="cypress" />
 describe.only("Login Test", () => {
   beforeEach(() => {
-    cy.fixture("login_data").then(function (data) {
+    cy.fixture("env_data").then(function (data) {
       this.data = data;
     });
     cy.visit("https://www.automationexercise.com");

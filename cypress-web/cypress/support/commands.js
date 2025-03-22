@@ -10,16 +10,23 @@
 //
 //
 // -- This is a parent command --
-import login_data from "../fixtures/login_data.json";
-import 'cypress-xpath';
-
+import envData from "../fixtures/env_data.json";
+import "cypress-xpath";
+beforeEach(function () {
+  cy.fixture("env_data").then((data) => {
+    cy.wrap(data).as("envData"); // Save fixture data as an alias
+  });
+});
 // Cypress.Commands.add('login', (email, password) => { ... })
 Cypress.Commands.add("login", (email, password) => {
-  cy.visit(login_data.url.correct_url);
-//   cy.xpath('//*[@id="header"]/div/div/div/div[2]/div/ul/li[4]/a').click();
-//   cy.get("#email").type(login_data.login.email);
-//   cy.get("#password").type(login_data.login.password);
-//   cy.get("#submit").click();
+  cy.get("@envData").then((data) => {
+    cy.visit(data.url.correct_url);
+    cy.get(data.navigation.login_nav).click();
+    cy.get(data.navigation.login_nav).should("be.visible");
+    cy.get(data.navigation.email_field).type(email);
+    cy.get(data.navigation.password_field).type(password);
+    cy.get(data.navigation.login_submit).click();
+  });
 });
 //
 // -- This is a child command --
@@ -32,4 +39,3 @@ Cypress.Commands.add("login", (email, password) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
